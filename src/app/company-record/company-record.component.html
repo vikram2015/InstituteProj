@@ -25,8 +25,8 @@
       <td>{{company.company_adress}}</td>
       <td>{{company.company_type}}</td>
       <td style="text-align: center"><button type="submit" class="btn btn-primary" (click)="viewCompany()">View</button></td>
-      <td style="text-align: center"><button type="submit" class="btn btn-success" (click)="updateCompany()">Update</button></td>
-      <td style="text-align: center"><button type="submit" class="btn btn-danger" (click)="deleteCompany()">Delete</button></td>
+      <td style="text-align: center"><button type="submit" class="btn btn-success" (click)="updateCompany(company)">Update</button></td>
+      <td style="text-align: center"><button type="submit" class="btn btn-danger" (click)="deleteCompany(i,company)">Delete</button></td>
       
     </tr>
   </tbody>

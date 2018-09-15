@@ -22,6 +22,26 @@ export class CompanyRecordComponent implements OnInit {
     this._router.navigateByUrl('company');
   }
 
+  updateCompany(company){
+    console.log(company);
+    this._serviceFile.setFormData(company);
+    this._router.navigateByUrl('companyUpdate');
+  }
+
+  deleteCompany(i,company){
+
+    var id = company._id;
+
+    this._serviceFile.deleteCompany(id).subscribe((data)=>{
+      console.log(data);
+      if(data.success){
+          this.companyList.splice(i,1);
+      }
+    })
+
+
+  }
+
 
 
 

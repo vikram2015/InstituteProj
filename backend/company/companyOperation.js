@@ -30,8 +30,47 @@ let fetchAllCompanyDetails = ()=>{
     })
 }
 
+let fetchOneCompany = (paramter)=>{
+    return new Promise((resolve, reject)=>{
+        companySchema.findOne({_id:paramter.id})
+    })
+}
+
+let updateCompany = (id,paramter)=>{
+    console.log('paramter in operation file')
+    console.log(paramter)
+    console.log(id)
+
+    return new Promise((resolve, reject)=>{
+        companySchema.findByIdAndUpdate(id, {$set:paramter})
+        .then(function(data){
+            console.log('data in operation');
+            console.log(data);
+            if(data){
+                resolve(data);
+            }
+        })
+    })
+
+}
+
+let deleteCompany = (id)=>{
+    return new Promise((resolve, reject)=>{
+        companySchema.findByIdAndRemove(id).then((data)=>{
+            console.log('data in operation file')
+            console.log(data)
+            if(data){
+                resolve(data)
+            }
+        })
+    })
+}
+
 
 module.exports = {
     saveCompany:saveCompany,
-    fetchAllCompanyDetails:fetchAllCompanyDetails
+    fetchAllCompanyDetails:fetchAllCompanyDetails,
+    fetchOneCompany:fetchOneCompany,
+    updateCompany:updateCompany,
+    deleteCompany:deleteCompany
 }

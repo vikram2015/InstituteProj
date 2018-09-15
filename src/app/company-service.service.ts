@@ -10,6 +10,8 @@ export class CompanyServiceService {
 
   constructor(private _http:Http) { }
 
+  formData={};
+
   /**
    * 
    * This function is for saving the new company
@@ -39,6 +41,48 @@ export class CompanyServiceService {
         return newData.companyData;
        }
     });
+  }
+
+  /**
+   * for deleting one company
+   */
+  deleteCompany(id){
+    return this._http.post('/company/deleteCompany',{params:id}).map(function (data) {
+       console.log(data);
+       let newData = data.json();
+       console.log("this is service file ")
+       console.log(newData)
+       if(newData.success){
+
+        return newData.companyData;
+       }
+    });
+  }
+
+  /**
+   * for update one company
+   */
+  updateCompany(parameter){
+
+    console.log('parameter in service')
+    console.log(parameter)
+    return this._http.post('/company/updateCompany',parameter).map(function (data) {
+      
+      var newData = data.json()
+      if(newData.success){
+          return newData;
+       }
+    });
+  };
+
+
+  setFormData(parameter){
+    console.log(parameter);
+    this.formData = parameter;
+  }
+
+  getFormData(){
+    return this.formData;
   }
 
 }

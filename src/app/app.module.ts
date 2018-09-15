@@ -13,6 +13,7 @@ import { CompanyComponent } from './company/company.component';
 import { HomeComponent } from './home/home.component';
 import { CompanyServiceService } from './company-service.service';
 import { CompanyRecordComponent } from './company-record/company-record.component';
+import { CompanyUpdateComponent } from './company-update/company-update.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { CompanyRecordComponent } from './company-record/company-record.componen
     AppComponent,
     CompanyComponent,
     HomeComponent,
-    CompanyRecordComponent
+    CompanyRecordComponent,
+    CompanyUpdateComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { CompanyComponent } from './company/company.component';
 import { HomeComponent } from './home/home.component';
 import { CompanyRecordComponent } from './company-record/company-record.component';
+import { CompanyUpdateComponent } from './company-update/company-update.component';
 
 
 
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'company', component: CompanyComponent },
   { path: 'companyRecord', component: CompanyRecordComponent },
+  { path: 'companyUpdate', component: CompanyUpdateComponent },
 
 ];
 
