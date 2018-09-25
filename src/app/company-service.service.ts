@@ -46,15 +46,15 @@ export class CompanyServiceService {
   /**
    * for deleting one company
    */
-  deleteCompany(id){
-    return this._http.post('/company/deleteCompany',{params:id}).map(function (data) {
+  deleteCompany(company){
+    return this._http.post('/company/deleteCompany',company).map(function (data) {
        console.log(data);
        let newData = data.json();
        console.log("this is service file ")
        console.log(newData)
        if(newData.success){
 
-        return newData.companyData;
+        return newData;
        }
     });
   }

@@ -12,12 +12,13 @@ import { CompanyUpdateComponent } from './company-update/company-update.componen
 
 
 
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'company', component: CompanyComponent },
   { path: 'companyRecord', component: CompanyRecordComponent },
   { path: 'companyUpdate', component: CompanyUpdateComponent },
-
+  { path: 'companyView', component: ViewCompanyComponent },
 ];
 
 

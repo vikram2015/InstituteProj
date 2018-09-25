@@ -13,24 +13,26 @@ import { AppRoutingModule } from '../app.routing';
 export class CompanyUpdateComponent implements OnInit {
 
   companyDetails = {};
-  constructor(private _myService:CompanyServiceService, private _router: Router) { }
+  constructor(private _myService: CompanyServiceService, private _router: Router) { }
 
 
-  updateCompany(){
-
+  updateCompany() {
     console.log(this.companyDetails);
-    this._myService.updateCompany(this.companyDetails).subscribe((data)=>{
+    this._myService.updateCompany(this.companyDetails).subscribe((data) => {
       console.log(data);
-      if(data){
+      if (data) {
         this._router.navigateByUrl('companyRecord');
       }
     })
-
   }
+
+  // goBack(){
+  //   this._router.navigateByUrl('companyRecord');
+  // }
 
   ngOnInit() {
 
-     this.companyDetails = this._myService.getFormData();
+    this.companyDetails = this._myService.getFormData();
     console.log(this.companyDetails);
 
   }

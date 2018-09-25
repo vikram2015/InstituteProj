@@ -7,13 +7,22 @@ import { NgModel } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+/**
+ * Service File
+ */
+import { CompanyServiceService } from './company-service.service';
 
+
+/**
+ * Component File
+ */
 import { AppComponent } from './app.component';
 import { CompanyComponent } from './company/company.component';
 import { HomeComponent } from './home/home.component';
-import { CompanyServiceService } from './company-service.service';
 import { CompanyRecordComponent } from './company-record/company-record.component';
 import { CompanyUpdateComponent } from './company-update/company-update.component';
+
+import { ViewCompanyComponent } from './view-company/view-company.component';
 
 
 @NgModule({
@@ -22,7 +31,9 @@ import { CompanyUpdateComponent } from './company-update/company-update.componen
     CompanyComponent,
     HomeComponent,
     CompanyRecordComponent,
-    CompanyUpdateComponent
+    CompanyUpdateComponent,
+    
+    ViewCompanyComponent
   ],
   imports: [
     BrowserModule,
