@@ -17,6 +17,11 @@ let companySchema = schema({
     company_type:{
         type:String,
         required:false
+    },
+    isTrue:{
+        type:Boolean,
+        required:true,
+        default:true
     }
 });
 

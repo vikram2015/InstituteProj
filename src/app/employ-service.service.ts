@@ -18,8 +18,8 @@ export class EmployServiceService {
     return this._http.post('/employ/saveEmploy', parameter).map(function (data) {
       console.log(data);
       let newData = data.json();
-      if (newData.success) {
-        return newData.clientViewData;
+      if (newData) {
+        return newData;
       }
     });
   };

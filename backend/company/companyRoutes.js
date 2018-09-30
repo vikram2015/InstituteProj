@@ -13,7 +13,8 @@ router.post('/saveCompany', function(req, res){
         company_id : req.body.companyId,
         company_name : req.body.companyName,
         company_adress : req.body.companyAdress,
-        company_type : req.body.companyType
+        company_type : req.body.companyType,
+        isTrue : true,
     }
     companyOperation.saveCompany(companyObject).then(function(DBsavedData){
         res.send({success:true,MSG:'Company saved successfully',clientViewData:DBsavedData})
@@ -44,8 +45,18 @@ router.post('/deleteCompany',function(req, res){
     console.log(req.params);
     console.log(req.query);
     console.log(req.body);
-    var id = req.body.params;
-    companyOperation.deleteCompany(id).then((companyDetails)=>{
+    var id = req.body._id;
+    let companyObject = {
+        company_id : req.body.company_id,
+        company_name : req.body.company_name,
+        company_adress : req.body.company_adress,
+        company_type : req.body.company_type,
+        isTrue:false
+    }
+
+    console.log("in delete function of cmp route")
+    console.log(companyObject);
+    companyOperation.deleteCompany(id,companyObject).then((companyDetails)=>{
         res.send({success:true,
             MSG:'Company deleted successfully',
             companyData:companyDetails
@@ -79,5 +90,15 @@ router.post('/updateCompany',function(req, res){
         })
     })
 });
+
+// router.post('/populateCompany',function(req, res){
+//     var companyAdress = req.body.companyAdress;
+//     companyOperation.fetchPopulatedDetails(companyAdress).then((companyDetails)=>{
+//         res.send({success:true,
+//             MSG:'Company details found',
+//             companyData:companyDetails
+//         })
+//     })
+// });
 
 module.exports = router;

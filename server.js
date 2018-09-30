@@ -7,6 +7,8 @@ let path = require('path');
 
 let config = require('./config/config');
 let companyRoute = require('./backend/company/companyRoutes');
+let employRoute = require('./backend/employ/employRoutes');
+let HomeRoute = require('./backend/home/homeRouter');
 
 
 let app = express();
@@ -22,6 +24,8 @@ app.use(express.static(path.join(__dirname, 'dist')));
 //Routes
 
 app.use('/company',companyRoute);
+app.use('/employ',employRoute);
+app.use('/home',HomeRoute);
 
 
 app.use((data,req, res, next) => {
